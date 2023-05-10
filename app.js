@@ -8,25 +8,17 @@ form.addEventListener('submit', (e) => {
   if (city.length === 0) {
     return;
   }
-  const apiUrl = `http://www.7timer.info/bin/civil.php?lon=&lat=&ac=0&unit=metric&output=json&tzshift=0&city=${city}`;
+  const apiUrl = `https://wttr.in/${city}?format=%C\n%t\n%T\n`;
   fetch(apiUrl)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      return response.json();
+      return response.text();
     })
     .then(data => {
       console.log(data);
-      if (data.dataseries.length === 0) {
-        throw new Error('No weather data available');
-      }
-      const weather = data.dataseries[0];
-      const temperature = `${weather.temp2m}°C`;
-      const windSpeed = `${weather.wind10m.speed} m/s`;
-      const description = weather.weather;
-      const weatherString = `Temperature: ${temperature}, Wind speed: ${windSpeed}, Description: ${description}`;
-      weatherResult.textContent = weatherString;
+      weatherResult.innerHTML = `<pre>${data}</pre>`;
     })
     .catch(error => {
       console.error('There was a problem fetching the weather data:', error);
