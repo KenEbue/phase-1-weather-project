@@ -23,7 +23,7 @@ form.addEventListener('submit', (e) => {
       }
       const weather = data.dataseries[0];
       const temperature = `${weather.temp2m}°C`;
-      const windSpeed = `${weather.wind10m} m/s`;
+      const windSpeed = `${weather.wind10m.speed} m/s`;
       const description = weather.weather;
       const weatherString = `Temperature: ${temperature}, Wind speed: ${windSpeed}, Description: ${description}`;
       weatherResult.textContent = weatherString;
