@@ -8,7 +8,7 @@ form.addEventListener('submit', (e) => {
   if (city.length === 0) {
     return;
   }
-  const apiUrl = `https://wttr.in/${city}?format=%C\n%t\n%T\n`;
+  const apiUrl = `https://wttr.in/${city}?format=%C,%t,%T`;
   fetch(apiUrl)
     .then(response => {
       if (!response.ok) {
@@ -17,8 +17,8 @@ form.addEventListener('submit', (e) => {
       return response.text();
     })
     .then(data => {
-      console.log(data);
-      weatherResult.innerHTML = `<pre>${data}</pre>`;
+      const [weather, temp, time] = data.split(',');
+      weatherResult.innerHTML = `<p>${city} is ${weather.trim()}</p><p>${temp.trim()}</p><p>${time.trim()}</p>`;
     })
     .catch(error => {
       console.error('There was a problem fetching the weather data:', error);
