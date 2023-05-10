@@ -22,7 +22,10 @@ form.addEventListener('submit', (e) => {
         throw new Error('No weather data available');
       }
       const weather = data.dataseries[0];
-      const weatherString = `Temperature: ${weather.temp2m}°C, Wind speed: ${weather.wind10m}m/s, Description: ${weather.weather}`;
+      const temperature = `${weather.temp2m}°C`;
+      const windSpeed = `${weather.wind10m} m/s`;
+      const description = weather.weather;
+      const weatherString = `Temperature: ${temperature}, Wind speed: ${windSpeed}, Description: ${description}`;
       weatherResult.textContent = weatherString;
     })
     .catch(error => {
@@ -30,10 +33,3 @@ form.addEventListener('submit', (e) => {
       weatherResult.textContent = 'Sorry, there was a problem fetching the weather data.';
     });
 });
-
-fetch(apiUrl)
-  .then(response => response.json())
-  .then(data => {
-    console.log(JSON.stringify(data));
-    // code to display temperature, wind speed, and description goes here
-  });
