@@ -42,3 +42,29 @@ button:active {
   transform: translateY(1px);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
 }
+
+/* new code for Celsius/Fahrenheit toggle button */
+#temp-toggle {
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  border-radius: 0.3em;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
+#temp-toggle:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+}
+
+#temp-toggle.active {
+  background-color: #28a745;
+}
+
+#temp-toggle.active:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+}
