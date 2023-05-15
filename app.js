@@ -39,6 +39,8 @@ function fetchWeather(city) {
     });
 }
 
+// First event listener 'submit' to fulfill the goals
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const city = searchInput.value.trim();
