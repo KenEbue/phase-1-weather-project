@@ -27,7 +27,7 @@ function fetchWeather(city) {
     .then(data => {
       const [weather, temp, time] = data.split(',');
       displayWeather(city, weather, temp, time);
-      tempToggle.textContent = `Toggle to ${isCelsius ? 'F' : 'C'}`;
+      tempToggle.textContent = `Toggle to °${isCelsius ? 'F' : 'C'}`;
     })
     .catch(error => {
       console.error('There was a problem fetching the weather data:', error);
@@ -50,6 +50,6 @@ tempToggle.addEventListener('click', (e) => {
   tempToggle.textContent = `Toggle to ${isCelsius ? 'F' : 'C'}`;
   const tempText = weatherResult.querySelector("p:nth-child(2)");
   const [tempDisplay, tempUnitDisplay] = tempText.textContent.split(" ");
-  const temp = isCelsius ? (tempDisplay - 32) * 5 / 9 : (tempDisplay * 9 / 5) + 32; // updated conversion formula
+  const temp = isCelsius ? (tempDisplay - 32) * 5 / 9 : (tempDisplay * 9 / 5) + 32; // updated conversion formula fixed
   tempText.textContent = `${temp.toFixed(1)} ${tempUnit}`;
 });
