@@ -50,6 +50,6 @@ tempToggle.addEventListener('click', (e) => {
   tempToggle.textContent = `Toggle to ${isCelsius ? 'F' : 'C'}`;
   const tempText = weatherResult.querySelector("p:nth-child(2)");
   const [tempDisplay, tempUnitDisplay] = tempText.textContent.split(" ");
-  const temp = isCelsius ? (tempDisplay - 32) * 5 / 9 : (tempDisplay * 9 / 5) + 32; // updated conversion formula fixed
+  const temp = isCelsius ? (tempDisplay - 32) * 5 / 9 : (tempDisplay * 9 / 5) + 32; // Fixed display
   tempText.textContent = `${temp.toFixed(1)} ${tempUnit}`;
 });
