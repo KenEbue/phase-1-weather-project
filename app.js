@@ -6,7 +6,7 @@ const tempToggle = document.querySelector('#temp-toggle');
 let isCelsius = false;
 
 // The portion of the site that displays the weather
-
+// Broken into 3 parts given the city input in the search
 function displayWeather(city, weather, temp, time) {
   let tempDisplay = parseFloat(temp);
   if (isCelsius) {
