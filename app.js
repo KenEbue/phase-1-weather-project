@@ -15,6 +15,8 @@ function displayWeather(city, weather, temp, time) {
   weatherResult.innerHTML = `<p>${city} is ${weather.trim()}</p><p>${tempDisplay} ${tempUnit}</p><p>${time.trim()}</p>`;
 }
 
+// Function fetching from the API
+
 function fetchWeather(city) {
   const apiUrl = `https://wttr.in/${city}?format=%C,%t,%T`;
   fetch(apiUrl)
