@@ -3,7 +3,7 @@ const searchInput = document.querySelector('#search-input');
 const weatherResult = document.querySelector('#weather-result');
 const tempToggle = document.querySelector('#temp-toggle');
 
-let isCelsius = true;
+let isCelsius = false;
 
 function displayWeather(city, weather, temp, time) {
   let tempDisplay = parseFloat(temp);
@@ -27,6 +27,7 @@ function fetchWeather(city) {
     .then(data => {
       const [weather, temp, time] = data.split(',');
       displayWeather(city, weather, temp, time);
+      tempToggle.textContent = `Toggle to ${isCelsius ? 'F' : 'C'}`;
     })
     .catch(error => {
       console.error('There was a problem fetching the weather data:', error);
@@ -46,7 +47,7 @@ form.addEventListener('submit', (e) => {
 tempToggle.addEventListener('click', (e) => {
   isCelsius = !isCelsius;
   const tempUnit = isCelsius ? "°C" : "°F";
-  tempToggle.textContent = `Toggle to ${tempUnit}`;
+  tempToggle.textContent = `Toggle to ${isCelsius ? 'F' : 'C'}`;
   const tempText = weatherResult.querySelector("p:nth-child(2)");
   const [tempDisplay, tempUnitDisplay] = tempText.textContent.split(" ");
   const temp = isCelsius ? (tempDisplay - 32) * 5 / 9 : (tempDisplay * 9 / 5) + 32; // updated conversion formula
