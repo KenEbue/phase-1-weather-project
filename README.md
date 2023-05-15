@@ -5,7 +5,7 @@ Initially tried to use 7TIMER! as an API but I couldn't figure out a good way to
 
 Found it easier uusing this API https://wttr.in/ to fetch weather information.
 
-The idea is to have search bar with a clickable search button(Animated hopefully)=Submit Event
+The idea is to have search bar with a clickable search button(Animated hopefully). This would be a submit event listener.
 
 Then for another event listener I have a toggle button for Fahrenheit/Celsius being displayed.
 
