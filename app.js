@@ -50,6 +50,8 @@ form.addEventListener('submit', (e) => {
   fetchWeather(city);
 });
 
+// Added a toggle button for Fahrenheit/Celsius. 2nd event listener used.
+
 tempToggle.addEventListener('click', (e) => {
   isCelsius = !isCelsius;
   const tempUnit = isCelsius ? "°C" : "°F";
